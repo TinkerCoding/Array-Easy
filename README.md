@@ -25,7 +25,7 @@ are used for a two-dimensional array. Three for a three-dimensional array, and n
 
 3. Implementation of list using array is easier as compound to other implementations.
 
-/// Disadvantage of Arrays:
+/// Disadvantages of Arrays:
 
 1. Elements of arrays are always stored in contiguous memory.
 
