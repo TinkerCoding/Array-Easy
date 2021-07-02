@@ -1,0 +1,19 @@
+/**
+* @param {number[]} nums
+* @param {number} target
+* @return {number}
+*/
+var searchInsert = function(nums, target) {
+    for (let i = 0; i < nums.length; i++){
+        if (nums[i] >= target){
+            return i;
+        }
+    }
+    return nums.length
+};
+/*
+1.Loop thrugh nums array.
+   a. Create condition if nums[i] >= target.
+   i. if true, return i.
+2. Return nums.length
+*/
