@@ -25,3 +25,75 @@ let twoSum = function(numbers, target) {
 
   return result;   
 };
+
+
+
+
+/// Code with notes ///
+
+/**
+* @param {number[]} numbers
+* @param {number} target
+* @return {number[]}
+*/
+let twoSum = function(numbers, target) {
+// The let statement declares a block-scoped local variable, optionally initializing it to a value.
+
+// let allowsyou to declare variables that are limited to the scope of a block statement, or expression on which it is used, unlike the var keyword, which declares a
+// variable globally, or locally to an entire function regardless of block scope. The other difference between var and let is that the latter is initialized to a value
+// only when a parser evaluates it.
+// Just like const the let does not create properties of the window object when declared globally (in the top-most scope).
+
+
+    let leftPointer = 0;
+
+//Much of today's web content assumes the user's pointing device will be a mouse. However, since many devices supoort other types of pointing input devices, 
+// such as pen/stylus and touch surfaces, extensions to the existing pointing device event models are needed. Pointer events address that need.
+
+//Pointer events are DOM events that are fired for a pointing device. They are designed to create a single DOM event model to handle pointing input devices such as a 
+// mouse, pen/stylus or touch (such as one or more fingers).
+
+// The pointer is a hardware-agnostic device that can target a specific set of screen coordinates. Having a single event model for pointers can simplify creating
+// Web sites and applications and provide a good user experience regardless of the user's hardware. However, for scenarios when device-specific handling is desired,
+// pointer events defines a pointerType property to inspect the device type which produced the event.
+
+// The events needed to handle generic pointer input are analogous to mouse-events (mousedown/pointerdown, mousemove/pointermove, etc). Consequently, pointer event types
+// are intentionally similar to mouse event types.
+
+// Additionally, a pointer event contains the usual properties present in mouse events (client coordinatesm target element, button states, etc) in addition to new properties
+// for other  forms of input: pressure, contact geometry, tilt, etc. In fact, the PointerEvent interface inherits all of the MouseEvent properties, thus facilitating 
+// the migration of content from mouse events to pointer events.
+
+
+    let rightPointer = numbers.length - 1;
+
+    let result = [];
+
+    while (leftPointer < rightPointer) {
+        let leftElement = numbers[leftPointer];
+        let rightElement = numbers[rightPointer];
+
+        if (leftElement + rightElement === target) {
+  // The if statement executes a statement if a specified condition is truthy. If the condition is falsy, another statement can be executed.
+  
+            result.push(leftPointer + 1);
+            result.push(rightPointer + 1);
+  // The push() method adds new items to the end of an array.
+  // push() changes the length of the array and returns the new length.
+  //(TIP: TO ADD ITEMS AT THE BEGINNING OF AN ARRAY, USE UNSHIFT).// 
+
+            break;
+
+  // The break statement terminates the current loop, switch, or label statement and transfer program control to the statement following the terminated statement.
+
+        } else if (leftElement + rightElement > target) {
+            rightPointer--;
+        } else {
+
+  // In programming languages, an else statement is an alternative statement that is executed if the result of a previous test condition evaluates to false.
+
+            leftPointer++;
+        }
+    }
+ return result;
+};
