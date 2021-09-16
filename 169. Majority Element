@@ -1,1 +1,96 @@
+/**
+* @param {number[]} nums
+* @return {number}
+*/
+let majorityElement = function(nums) {
+    if (nums.length === 1) {
+        return nums[0];
+    }
 
+    let half = nums.length / 2;
+    let elementCount = new Map();
+
+    for (let num of nums) {
+        if (!elementCount.has(num)) {
+            elementCount.set(num, 1);
+        } else {
+            elementCount.set(num, elementCount.get(num) + 1);
+        }
+
+        if (elementCount.get(num) > half) {
+            return num;
+        }
+    }
+
+    return -1;
+};
+
+
+
+
+/// Code with notes ///
+
+
+/**
+* @param {number[]} nums
+* @return {number}
+*/
+let majorityElement = function(nums) {
+
+/// The majority element is an element in an array that occurs more than (size/2) times in an array (where size is the number of elements stored in an array).
+
+
+
+                                                            /// Basic Method ///
+/// This method has two loops that count the maximum occurrence of each element of each elememt in an array. Whenever the maximum count becomes greater than the size/2,
+/// the loops break and display the element as the majority element of an array. The time complexity of this method in terms of BigO is O(size^2).
+
+                                                            /// Using HashMap ///
+/// The basic method is computationally expensive as it has BigO of (O(size^2). To reduce the BigO, a HashMap can be used to find the majority element in O(size).
+/// HashMap will store the count of occurences of an element and the element itself.
+
+
+    if (nums.length === 1) {
+        return nums[0];
+    }
+/// What is === in JavaScript? === (Triple equals) is a strict equality comparison operator in JavaScript, which returns false for the values which are not of a
+/// similar type. This operator performs type casting for equality. If we compare 2 with "2" using ===, then it will return a false value.
+
+
+
+/// The Map object holds key-value pairs and remembers the original insertion order of the keys. ANy value (both onjects and primitive values) may be used as either
+/// a key or a value.
+
+/// Description
+/// A map object iterates its elements in insertion order - a for...of loop returns an array of [key, value] for each iteration.
+
+/// Key equality
+/// > Key equality is based on the sameValueZero algorithm.
+/// > NaN is considered the same as NaN (even though NaN !== NaN) and all other values are considered equal according to the semantics of the === operator.
+/// > In the current ECMAScript specification, -0 and +0 are considered equal, although this was not so in earlier drafts. See "Value equality for -O and O" in the Browser
+/// compatibility. table for details.
+
+
+/// Objects vs. Maps
+/// object is similar to Map -both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. For this reason (and 
+/// because there were no built-in alteratives), Object has been used as Map historically.
+
+
+
+    let half = nums.length / 2;
+    let elementCount = new Map();
+
+    for (let num of nums) {
+        if (!elementCount.has(num)) {
+            elementCount.set(num, 1);
+        } else {
+            elementCount.set(num, elementCount.get(num) + 1);
+        }
+
+        if (elementCount.get(num) > half) {
+            return num;
+        }
+    }
+
+    return -1;
+};
